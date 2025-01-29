@@ -19,10 +19,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 h1 {
-    font-size: 36px;
+    font-size: 2.5rem;
     margin-bottom: 10px;
 }
 
@@ -30,7 +31,7 @@ h1 {
     display: flex;
     gap: 20px;
     margin-bottom: 20px;
-    font-size: 18px;
+    font-size: 1.25rem;
 }
 
 .grid {
@@ -39,6 +40,7 @@ h1 {
     grid-gap: 10px;
     margin-bottom: 20px;
     position: relative;
+    justify-content: center;
 }
 
 .cell {
@@ -48,7 +50,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 32px;
+    font-size: 1.5rem;
     font-weight: bold;
     border-radius: 10px;
     transition: background-color 0.3s, transform 0.3s;
@@ -69,7 +71,7 @@ h1 {
 button {
     padding: 10px 20px;
     margin: 5px;
-    font-size: 18px;
+    font-size: 1.25rem;
     cursor: pointer;
     background-color: #ffdd57;
     border: none;
@@ -83,4 +85,30 @@ button:focus {
 
 button:active {
     transform: scale(0.98);
+}
+
+/* Mobile-Friendly Adjustments */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .info {
+        flex-direction: column;
+        font-size: 1rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(4, 80px);
+    }
+
+    .cell {
+        width: 80px;
+        height: 80px;
+        font-size: 1.25rem;
+    }
+
+    button {
+        font-size: 1rem;
+    }
 }
