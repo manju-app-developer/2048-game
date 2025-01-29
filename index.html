@@ -1,11 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2048 Game</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Add some basic styles to make sure everything fits nicely */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #faf8ef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .info {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 1rem;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+
+        /* Ensure the grid and tiles are responsive on mobile */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Mobile optimization for smaller screens */
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .info {
+                font-size: 0.9rem;
+            }
+
+            button {
+                width: 100%;
+                padding: 12px;
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Tile styles for 2048 game */
+        .tile {
+            background-color: #eee4da;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+            width: 60px;
+            border-radius: 5px;
+            color: #776e65;
+        }
+
+        .tile[data-value="2"] {
+            background-color: #eee4da;
+        }
+
+        .tile[data-value="4"] {
+            background-color: #ede0c8;
+        }
+
+        .tile[data-value="8"] {
+            background-color: #f2b179;
+        }
+
+        /* Other tile colors for larger numbers */
+        .tile[data-value="16"] {
+            background-color: #f59563;
+        }
+
+        .tile[data-value="32"] {
+            background-color: #f67c5f;
+        }
+
+        .tile[data-value="64"] {
+            background-color: #f65e3b;
+        }
+
+        .tile[data-value="128"] {
+            background-color: #edcf72;
+        }
+
+        .tile[data-value="256"] {
+            background-color: #edcc61;
+        }
+
+        .tile[data-value="512"] {
+            background-color: #edc850;
+        }
+
+        .tile[data-value="1024"] {
+            background-color: #edc53f;
+        }
+
+        .tile[data-value="2048"] {
+            background-color: #edc22e;
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
         <h1>2048 Game</h1>
@@ -19,4 +166,5 @@
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
