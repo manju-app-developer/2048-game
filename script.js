@@ -191,12 +191,37 @@ function checkGameOver() {
   }
 }
 
-// Event listeners for arrow keys
+// Event listeners for arrow keys (Desktop)
 document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft') move('left');
   if (e.key === 'ArrowRight') move('right');
   if (e.key === 'ArrowUp') move('up');
   if (e.key === 'ArrowDown') move('down');
+});
+
+// Swipe Event Listeners for Mobile (Touch support)
+let touchStartX = 0;
+let touchStartY = 0;
+
+board.addEventListener('touchstart', (e) => {
+  touchStartX = e.touches[0].pageX;
+  touchStartY = e.touches[0].pageY;
+});
+
+board.addEventListener('touchend', (e) => {
+  const touchEndX = e.changedTouches[0].pageX;
+  const touchEndY = e.changedTouches[0].pageY;
+  
+  const diffX = touchEndX - touchStartX;
+  const diffY = touchEndY - touchStartY;
+
+  if (Math.abs(diffX) > Math.abs(diffY)) {
+    if (diffX > 0) move('right'); // Swipe right
+    else move('left'); // Swipe left
+  } else {
+    if (diffY > 0) move('down'); // Swipe down
+    else move('up'); // Swipe up
+  }
 });
 
 // Restart button functionality
@@ -207,3 +232,4 @@ undoBtn.addEventListener('click', undoMove);
 
 // Initialize the game
 init();
+
